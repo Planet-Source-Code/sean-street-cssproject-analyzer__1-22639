@@ -1,0 +1,44 @@
+VERSION 5.00
+Begin VB.Form Form1 
+   Caption         =   "Form1"
+   ClientHeight    =   3195
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   4680
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   3195
+   ScaleWidth      =   4680
+   StartUpPosition =   3  'Windows Default
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Public Sub LocalPublicProc(strMessage As String)
+    MsgBox strMessage
+End Sub
+
+Private Sub LocalPrivateProc(strMessage As String)
+    MsgBox strMessage
+End Sub
+
+Private Sub CallsToProcs()
+    LocalPublicProc ("test")
+    LocalPrivateProc ("test")
+    Me.LocalPublicProc ("test")
+    Me.LocalPrivateProc ("test")
+    Form2.Form2PublicProc ("test")
+    Form2.Form2PrivateProc ("test")
+    Form2PublicProc ("test")
+    GlobalPublicProc ("test")
+    Kill "nothing"
+    Name "a" As "b"
+    Shell ("file.exe")
+    
+    
+    
+End Sub
+
